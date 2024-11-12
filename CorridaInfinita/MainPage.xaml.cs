@@ -16,6 +16,31 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+	void GerenciaCenarios()
+	{
+		MoveCenario();
+		GerenciaCenario(hslayer1);
+		GerenciaCenario(hslayer2);
+		GerenciaCenario(hslayer3);
+		GerenciaCenario(hslayerChao);
+	}
+	void MoveCenario()
+	{
+		hslayer1.TranslationX-=velocidade1;
+		hslayer2.TranslationX-=velocidade2;
+		hslayer3.TranslationX-=velocidade3;
+		hslayerChao.TranslationX-=velocidade;
+	}
+	void GerenciaCenario(HorizontalStackLayout hsl)
+	{
+		var view=(hsl.Children.First() as Image);
+		if (view.WidthRequest+hsl.TranslationX<0)
+		{
+			hsl.Children.Remove(view);
+			hsl.Children.Add(view);
+			hsl.TranslationX= view.TranslationX;
+		}
+	}
 
 	protected override void OnSizeAllocated(double w, double h)
 	{
