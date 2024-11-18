@@ -2,36 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             Shell.NavBarIsVisible="False"
+            xmlns:FF="clr.namespace.FFImageLoading.Maui;assembly=FFImagemLoading.Maui"
              x:Class="CorridaInfinita.MainPage">
 
     <Grid>
-    <HorizontalStackLayout x:Name="hslayer1">
-    <Image Source="fundo.jpg"
+    <HorizontalStackLayout x:Name="hslayer1"
+                           CacheTyte="Disk"
+                           CacheDurations="365">
+    <FF:CachedImageView Source="fundo.jpg"
             Aspect ="Fill"/>
-    <Image Source="fundo.jpg"
+    <FF:CachedImageView Source="fundo.jpg"
             Aspect ="Fill"/>
-    <Image Source="fundo.jpg"
+    <FF:CachedImageView Source="fundo.jpg"
             Aspect ="Fill"/>
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout x:Name="hslayer2">
-    <Image Source="meio.png"/>
-    <Image Source="meio.png"/>
-    <Image Source="meio.png"/>
+    <HorizontalStackLayout x:Name="hslayer2"
+                           CacheTyte="Disk"
+                           CacheDurations="365">
+    <FF:CachedImageView Source="meio.png"/>
+    <FF:CachedImageView Source="meio.png"/>
+    <FF:CachedImageView Source="meio.png"/>
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout x:Name="hslayer3">
-    <Image Source="perto.png"/>
-    <Image Source="perto.png"/>
-    <Image Source="perto.png"/>
+    <HorizontalStackLayout x:Name="hslayer3"
+                           CacheTyte="Disk"
+                           CacheDurations="365">
+    <FF:CachedImageView Source="perto.png"/>
+    <FF:CachedImageView Source="perto.png"/>
+    <FF:CachedImageView Source="perto.png"/>
     </HorizontalStackLayout>
 
-    <HorizontalStackLayout x:Name="hslayerChao">
-    <Image Source="chao.png"
+    <HorizontalStackLayout x:Name="hslayerChao"
+                           CacheTyte="Disk"
+                           CacheDurations="365">
+    <FF:CachedImageView Source="chao.png"
             VerticalOptions="End"/>
-    <Image Source="chao.png"
+    <FF:CachedImageView Source="chao.png"
             VerticalOptions="End"/>
-    <Image Source="chao.png"
+    <FF:CachedImageView Source="chao.png"
             VerticalOptions="End"/>
     </HorizontalStackLayout>
     </Grid>

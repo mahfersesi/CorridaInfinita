@@ -12,6 +12,7 @@ public partial class MainPage : ContentPage
 	int velocidade=0;
 	int larguraJanela=0;
 	int AlturaJanela=0;
+	Player player;
 	public MainPage()
 	{
 		InitializeComponent();
@@ -71,6 +72,7 @@ public partial class MainPage : ContentPage
 		hslayer3.WidthRequest=w*1.5;
 		hslayerChao.WidthRequest=w*1.5;
 	}
+	
 	
 }
 

@@ -1,0 +1,4 @@
+public Player (CachedImageView)
+{
+    
+}

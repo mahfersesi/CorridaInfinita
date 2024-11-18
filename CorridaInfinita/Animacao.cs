@@ -4,11 +4,13 @@ public class Animacao
     protected List<String> Animacao2 = new List<String>();
     protected List<String> Animacao3 = new List<String>();
     int frameAtual =1;
+    protected  CachedImageView ImageView;
+
     protected bool Loop=true;
     protected int animacaoAtiva=1;
     bool parado=true;
     protected Image compImagem;
-    public Animacao(Image a)
+    public Animacao(CachedImageView)
     {
         compImagem=a;
     }
