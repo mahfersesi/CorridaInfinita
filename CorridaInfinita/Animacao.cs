@@ -1,3 +1,4 @@
+using FFImageLoading.Maui;
 public class Animacao
 {
     protected List<String> Animacao1 = new List<String>();
@@ -10,9 +11,9 @@ public class Animacao
     protected int animacaoAtiva=1;
     bool parado=true;
     protected Image compImagem;
-    public Animacao(CachedImageView)
+    public Animacao(CachedImageView a)
     {
-        compImagem=a;
+        compImagem = a;
     }
     public void Stop()
     {
@@ -30,28 +31,28 @@ public class Animacao
     {
         if(parado)
            return;
-        String CorridaInfinita;
+        String NomeArquivo;
         int tamanhoAnimacao;
         if(animacaoAtiva==1)
         {
-            CorridaInfinita=Animacao1[frameAtual];
+            NomeArquivo=Animacao1[frameAtual];
             tamanhoAnimacao=Animacao1.Count;
         }
         else if (animacaoAtiva==2)
         {
-            CorridaInfinita=Animacao2[frameAtual];
+            NomeArquivo=Animacao2[frameAtual];
             tamanhoAnimacao=Animacao2.Count;
         }
         else if (animacaoAtiva==3)
         {
-            CorridaInfinita=Animacao3[frameAtual];
+            NomeArquivo=Animacao3[frameAtual];
             tamanhoAnimacao=Animacao3.Count;
         }
-        compImagem.Source=ImageSource.FromFile(CorridaInfinita);
+        compImagem.Source=ImageSource.FromFile(NomeArquivo);
         frameAtual++;
         if(frameAtual >=tamanhoAnimacao)
         {
-            if (loop)
+            if (Loop)
               frameAtual=0;
             else 
             {

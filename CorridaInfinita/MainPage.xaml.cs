@@ -1,4 +1,5 @@
-﻿namespace CorridaInfinita;
+﻿using FFImageLoading.Maui;
+namespace CorridaInfinita;
 
 public partial class MainPage : ContentPage
 {
@@ -12,10 +13,20 @@ public partial class MainPage : ContentPage
 	int velocidade=0;
 	int larguraJanela=0;
 	int AlturaJanela=0;
+	const int forcaGravidade=6;
+	bool estaChao=true;
+	bool estaAr=false;
+	int tempoPulando=0;
+	int tempoAr=0;
+	const int forcaPulo=8;
+	const int maxTempoPulando=6;
+	const int maxTempoAr=4;
 	Player player;
 	public MainPage()
 	{
 		InitializeComponent();
+		player = new Player(imgCorre);
+		player.Run();
 	}
 	void GerenciaCenarios()
 	{
@@ -72,7 +83,50 @@ public partial class MainPage : ContentPage
 		hslayer3.WidthRequest=w*1.5;
 		hslayerChao.WidthRequest=w*1.5;
 	}
+
+	async Task Desenha()
+	{
+		while (!estaMorto)
+		{
+			GerenciaCenarios();
+			player.Desenhar();
+			await Task.Delay(tempoEntreFrame);
+
+		}
+	}
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+		Desenha();
+    }
 	
-	
+	void AplicaGravidade()
+	{
+		if (player.GetY()<0)
+		player.MoveY (forcaGravidade);
+		else if (player.GetY()>=0)
+		{
+			player.SetY (0);
+			estaChao=true;
+		}
+	}
+	void AplicaPulo()
+	{
+		estaChao=false;
+		if (estaPulando && tempoPulando >= maxTempoPulando)
+		{
+			estaPulando = false;
+			estaAr = true;
+			tempoAr=0;
+		}
+		else if (estaAr && tempoAr >= maxTempoAr)
+		{
+			estaPulando=false;
+			estaAr=false;
+			tempoPulando=0;
+			tempoAr=0;
+		}
+	}
+
 }
 
