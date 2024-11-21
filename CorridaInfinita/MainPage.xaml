@@ -6,6 +6,9 @@
              x:Class="CorridaInfinita.MainPage">
 
     <Grid>
+    <Grid.GestureRecognizers>
+    <TapGestureRecognizer Tapped="OnGridCliked"/>
+    </Grid.GestureRecognizers>
     <HorizontalStackLayout x:Name="hslayer1">
     <Image Source="fundo.jpg"
             Aspect ="Fill"/>
@@ -37,11 +40,34 @@
     </HorizontalStackLayout>
 
     <FF:CachedImageView Source="corre1.png"
-                        CacheType="Disk"
+                        CacheType="All"
                         CacheDuration="365"
                         x:Name="imgCorre"
-                        HorizontalOpitions="Start"
-                        VerticalOpitions="End"/>
+                        HeightRequest="150"
+                        WidthRequest="100"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"/>
+
+     <Image Source="ostaculo1"
+                x:Name="imgInimigo1"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+
+        <Image Source="ostaculo2"
+                x:Name="imgInimigo2"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+
+        <Image Source="ostaculo3"
+                x:Name="imgInimigo3"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+
+        <Image Source="ostaculo4"
+                x:Name="imgInimigo4"
+                VerticalOptions="End"
+                HorizontalOptions="End"/>
+
     </Grid>
 
 </ContentPage>

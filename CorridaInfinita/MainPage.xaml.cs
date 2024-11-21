@@ -22,6 +22,7 @@ public partial class MainPage : ContentPage
 	const int maxTempoPulando=6;
 	const int maxTempoAr=4;
 	Player player;
+	Inimigos inimigos;
 	public MainPage()
 	{
 		InitializeComponent();
@@ -59,6 +60,11 @@ public partial class MainPage : ContentPage
 		base.OnSizeAllocated(w, h);
 		CorrigeTamanhoCenario(w, h);
 		CalculaVelocidade(w);
+		inimigos=new Inimigos(-w);
+		inimigos.Add(new Inimigo(imgInimigo1));
+		inimigos.Add(new Inimigo(imgInimigo2));
+		inimigos.Add(new Inimigo(imgInimigo3));
+		inimigos.Add(new Inimigo(imgInimigo4));
 	}
 	void CalculaVelocidade(double w)
 	{
@@ -89,7 +95,15 @@ public partial class MainPage : ContentPage
 		while (!estaMorto)
 		{
 			GerenciaCenarios();
-			player.Desenhar();
+			if(inimigos!=null)
+				inimigos.Desenha(velocidade);
+			if (!estaPulando && !estaAr)
+			{
+				AplicaGravidade();	
+				player.Desenhar();
+			}
+			else 
+				AplicaPulo();
 			await Task.Delay(tempoEntreFrame);
 
 		}
@@ -126,6 +140,23 @@ public partial class MainPage : ContentPage
 			tempoPulando=0;
 			tempoAr=0;
 		}
+		else if (estaPulando && tempoPulando < maxTempoPulando)
+		{
+			player.MoveY(-forcaPulo);
+			tempoPulando++;
+		}
+		else if (estaAr)
+				tempoAr++;
+	}
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+		Desenha();
+    }
+	void OnGridCliked(object o, TappedEventArgs a)
+	{
+		if (estaChao)
+		estaPulando=true;
 	}
 
 }

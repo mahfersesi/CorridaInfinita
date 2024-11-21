@@ -13,7 +13,7 @@ public class Animacao
     protected Image compImagem;
     public Animacao(CachedImageView a)
     {
-        compImagem = a;
+        ImageView = a;
     }
     public void Stop()
     {
@@ -31,8 +31,8 @@ public class Animacao
     {
         if(parado)
            return;
-        String NomeArquivo;
-        int tamanhoAnimacao;
+        String NomeArquivo="";
+        int tamanhoAnimacao=0;
         if(animacaoAtiva==1)
         {
             NomeArquivo=Animacao1[frameAtual];
@@ -48,7 +48,7 @@ public class Animacao
             NomeArquivo=Animacao3[frameAtual];
             tamanhoAnimacao=Animacao3.Count;
         }
-        compImagem.Source=ImageSource.FromFile(NomeArquivo);
+        ImageView.Source=ImageSource.FromFile(NomeArquivo);
         frameAtual++;
         if(frameAtual >=tamanhoAnimacao)
         {
