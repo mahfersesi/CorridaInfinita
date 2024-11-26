@@ -10,7 +10,7 @@ public class Animacao
     protected bool Loop=true;
     protected int animacaoAtiva=1;
     bool parado=true;
-    protected Image compImagem;
+
     public Animacao(CachedImageView a)
     {
         ImageView = a;
@@ -27,11 +27,11 @@ public class Animacao
     {
         animacaoAtiva=a;
     }
-    public void Desenhar()
+    public void Desenha()
     {
         if(parado)
            return;
-        String NomeArquivo="";
+        string NomeArquivo="";
         int tamanhoAnimacao=0;
         if(animacaoAtiva==1)
         {

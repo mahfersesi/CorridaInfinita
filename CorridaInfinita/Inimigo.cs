@@ -2,10 +2,10 @@ using FFImageLoading.Maui;
 using Microsoft.Maui.Platform;
 namespace CorridaInfinita;
 
-public class inimigo 
+public class Inimigo 
 {
     Image ImageView;
-    public inimigo(Image a)
+    public Inimigo(Image a)
     {
         ImageView=a;
     }

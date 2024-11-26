@@ -61,7 +61,7 @@ public partial class MainPage : ContentPage
 		CorrigeTamanhoCenario(w, h);
 		CalculaVelocidade(w);
 		inimigos=new Inimigos(-w);
-		inimigos.Add(new Inimigo(imgInimigo1));
+		inimigos.Add(new Inimigo(imgInimigo1 ));
 		inimigos.Add(new Inimigo(imgInimigo2));
 		inimigos.Add(new Inimigo(imgInimigo3));
 		inimigos.Add(new Inimigo(imgInimigo4));
@@ -100,13 +100,13 @@ public partial class MainPage : ContentPage
 			if (!estaPulando && !estaAr)
 			{
 				AplicaGravidade();	
-				player.Desenhar();
+				player.Desenha();
 			}
 			else 
 				AplicaPulo();
 			await Task.Delay(tempoEntreFrame);
-
 		}
+		
 	}
     protected override void OnAppearing()
     {
@@ -120,7 +120,7 @@ public partial class MainPage : ContentPage
 		player.MoveY (forcaGravidade);
 		else if (player.GetY()>=0)
 		{
-			player.SetY (0);
+			player.SetY(0);
 			estaChao=true;
 		}
 	}
@@ -153,6 +153,7 @@ public partial class MainPage : ContentPage
         base.OnDisappearing();
 		Desenha();
     }
+
 	void OnGridCliked(object o, TappedEventArgs a)
 	{
 		if (estaChao)

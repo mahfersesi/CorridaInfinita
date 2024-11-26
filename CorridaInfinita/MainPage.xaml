@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            Shell.NavBarIsVisible="False"
-           xmlns:FF="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
+             Shell.NavBarIsVisible="False"
+             xmlns:ff="clr-namespace:FFImageLoading.Maui;assembly=FFImageLoading.Maui"
              x:Class="CorridaInfinita.MainPage">
 
     <Grid>
     <Grid.GestureRecognizers>
     <TapGestureRecognizer Tapped="OnGridCliked"/>
     </Grid.GestureRecognizers>
+
     <HorizontalStackLayout x:Name="hslayer1">
     <Image Source="fundo.jpg"
             Aspect ="Fill"/>
@@ -39,14 +40,14 @@
             VerticalOptions="End"/>
     </HorizontalStackLayout>
 
-    <FF:CachedImageView Source="corre1.png"
-                        CacheType="All"
+    <ff:CachedImageView CacheType="Memory"
                         CacheDuration="365"
                         x:Name="imgCorre"
                         HeightRequest="150"
                         WidthRequest="100"
                         HorizontalOptions="Start"
-                        VerticalOptions="End"/>
+                        VerticalOptions="End"
+                        BackgroundColor="blue"/>
 
      <Image Source="ostaculo1"
                 x:Name="imgInimigo1"
